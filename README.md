@@ -194,6 +194,78 @@ Failure/Error: <% @todos.each do |todo| %>
 
      NoMethodError:
        undefined method `signed_in?' for #<User:0x00007f83d6251500 @email=nil>
+```
+
+Errors while adding completed functionality
+
+spec/features/user_completes_todo_spec.rb
+
+```
+Failure/Error: click_on 'Done'
+
+     Capybara::ElementNotFound:
+       Unable to find link or button "Done"
+
+Failure/Error: <%= button_to 'Done', todo_completion_path(todo) %>
+
+     ActionView::Template::Error:
+       undefined method `todo_completion_path' for #<#<Class:0x00007fd07beb60b0>:0x00007fd07ce5d1a8>
+
+Failure/Error: click_on 'Done'
+
+     ActionController::RoutingError:
+       uninitialized constant CompletionsController
+
+Failure/Error: click_on 'Done'
+
+     AbstractController::ActionNotFound:
+       The action 'create' could not be found for CompletionsController
+
+Failure/Error:
+       expect(page).to have_css '.todos li.completed',
+                                text: 'Create Rails TDD proof of concept'
+
+       expected to find css ".todos li.completed" but there were no matches
+
+Failure/Error: <li class='<%= 'completed' if todo.completed? %>'><%= todo.title %></li>
+
+     ActionView::Template::Error:
+       undefined method `completed?' for #<Todo:0x00007f90257b5658>
+
+```
+
+Stopped above to write unit test.
+
+spec/models/todo_spec.rb
+
+```
+
+Failure/Error: todo = Todo.new(completed_at: Time.current)
+
+     ActiveModel::UnknownAttributeError:
+       unknown attribute 'completed_at' for Todo.
+
+Failure/Error: expect(todo).to be_completed
+       expected #<Todo id: nil, title: nil, created_at: nil, updated_at: nil, email: nil, completed_at: "2019-03-12 14:34:41"> to respond to `completed?`
+
+Failure/Error: expect(todo).to be_completed
+       expected `#<Todo id: nil, title: nil, created_at: nil, updated_at: nil, email: nil, completed_at: "2019-03-12 14:36:38">.completed?` to return true, got nil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
