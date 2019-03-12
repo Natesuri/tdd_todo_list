@@ -63,3 +63,82 @@ Failure/Error: @todo.create(todo_params)
      NoMethodError:
        undefined method `create' for nil:NilClass
 ```
+
+PT2 Revises above spec to force a user to sign in before allowing them to add
+to their todo list.
+
+```
+Failure/Error: sign_in
+     NameError:
+       undefined local variable or method `sign_in' for #<RSpec::ExampleGroups::UserCreatesTodo:0x00007f9fca529358>
+
+Failure/Error: click_on 'Add a new todo'
+
+     Capybara::ElementNotFound:
+       Unable to find link or button "Add a new todo"
+
+Failure/Error: fill_in 'Email', with: "me@railsdev.com"
+
+     Capybara::ElementNotFound:
+       Unable to find field "Email"
+
+Failure/Error: visit root_path
+
+     NoMethodError:
+       undefined method `authenticate' for #<TodosController:0x00007fa776c5eca0>
+
+Failure/Error: unless signed_in?
+
+     NoMethodError:
+       undefined method `signed_in?' for #<TodosController:0x00007fe8f14622b0>
+
+
+Failure/Error: redirect_to new_session_path
+
+     NameError:
+       undefined local variable or method `new_session_path' for #<TodosController:0x00007f848254a1d8>
+       Did you mean?  new_todo_path
+
+ActionController::RoutingError:
+       uninitialized constant SessionsController
+
+Failure/Error: visit root_path
+
+     AbstractController::ActionNotFound:
+       The action 'new' could not be found for SessionsController
+
+Failure/Error: visit root_path
+
+     ActionController::UnknownFormat:
+       SessionsController#new is missing a template for this request format and variant.
+
+       request.formats: ["text/html"]
+       request.variant: []
+
+Failure/Error: fill_in 'Email', with: "me@railsdev.com"
+
+     Capybara::ElementNotFound:
+       Unable to find field "Email"
+
+Failure/Error: click_on "Sign in"
+
+     Capybara::ElementNotFound:
+       Unable to find link or button "Sign in"
+
+Failure/Error: <%= form_for :session, url: session_path do |form| %>
+
+     ActionView::Template::Error:
+       undefined local variable or method `session_path' for #<#<Class:0x00007ff5c4e962d8>:0x00007ff5c5399708>
+       Did you mean?  session
+
+Failure/Error: click_on "Sign in"
+
+     AbstractController::ActionNotFound:
+       The action 'create' could not be found for SessionsController
+
+Failure/Error: click_on 'Add a new todo'
+
+     Capybara::ElementNotFound:
+       Unable to find link or button "Add a new todo"
+
+```
