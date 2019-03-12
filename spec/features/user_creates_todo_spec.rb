@@ -5,7 +5,7 @@ feature 'user creates todo' do
   # what the expecting passing behavior should be
   scenario 'successfully' do
     # tells Capybara to visit index.html
-    visit root_path
+    sign_in
 
     #  to click on a link or button with the text 'Add a new todo'
     click_on 'Add a new todo'
