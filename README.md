@@ -155,3 +155,46 @@ Failure/Error: expect(page).not_to have_css '.todos li', text: 'Learn React'
        expected not to find visible css ".todos li" with text "Learn React", found 1 match: "Learn React"
 
 ```
+
+Errors during refactor to create current_user
+
+```
+
+Failure/Error: @todos = current_user.todos
+
+     NameError:
+       undefined local variable or method `current_user' for #<TodosController:0x00007f81258a9820>
+
+Failure/Error: @todos = current_user.todos
+
+     NoMethodError:
+       undefined method `todos' for nil:NilClass
+
+Failure/Error: User.new(current_email)
+
+     NameError:
+       uninitialized constant ApplicationController::User
+
+Failure/Error: User.new(current_email)
+
+     ArgumentError:
+       wrong number of arguments (given 1, expected 0)
+
+Failure/Error: @todos = current_user.todos
+
+     NoMethodError:
+       undefined method `todos' for #<User:0x00007f8058ed2878>
+
+Failure/Error: <% @todos.each do |todo| %>
+
+     ActionView::Template::Error:
+       undefined method `each' for nil:NilClass
+
+ Failure/Error: current_user.signed_in?
+
+     NoMethodError:
+       undefined method `signed_in?' for #<User:0x00007f83d6251500 @email=nil>
+
+
+
+```
