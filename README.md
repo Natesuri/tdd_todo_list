@@ -148,4 +148,10 @@ Errors driving testing for: spec/features/user_sees_own_todos_spec.rb
 ```
 Failure/Error: expect(page).not_to have_css '.todos li', text: 'Learn React'
        expected not to find visible css ".todos li" with text "Learn React", found 1 match: "Learn React". Also found "Create Rails TDD proof of concept", which matched the selector but not all filters.
+
+Added Database_Cleaner between these errors.
+
+Failure/Error: expect(page).not_to have_css '.todos li', text: 'Learn React'
+       expected not to find visible css ".todos li" with text "Learn React", found 1 match: "Learn React"
+
 ```
