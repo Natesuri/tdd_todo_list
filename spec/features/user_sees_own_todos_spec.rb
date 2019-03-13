@@ -6,6 +6,6 @@ feature 'user sees own todo' do
 
     sign_in_as 'me@railsdev.com'
 
-    expect(page).not_to have_css '.todos li', text: 'Learn React'
+    expect(page).not_to display_todo('Learn React')
   end
 end
