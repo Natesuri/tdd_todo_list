@@ -271,3 +271,38 @@ Failure/Error: expect(todo).to be_completed
        expected `#<Todo id: 1, title: nil, created_at: "2019-03-13 17:09:04", updated_at: "2019-03-13 17:09:04", email: nil, completed_at: nil>.completed?` to return true, got false
 
 ```
+Building feature to mark items as incomplete.
+
+Errors for feature test: spec/features/user_marks_todo_incomplete_spec.rb
+
+Also, ran unit test for checking #incomplete function in Todo model
+
+
+
+```
+
+Failure/Error: click_on 'Incomplete'
+
+     Capybara::ElementNotFound:
+       Unable to find link or button "Incomplete"
+
+Failure/Error: click_on 'Incomplete'
+
+     ActionController::RoutingError:
+       No route matches [DELETE] "/todos/1/completion"
+
+Failure/Error: click_on 'Incomplete'
+
+     AbstractController::ActionNotFound:
+       The action 'destroy' could not be found for CompletionsController
+
+Failure/Error: todo.incomplete!
+
+     NoMethodError:
+       undefined method `incomplete!' for #<Todo:0x00007fb9e671f0a0>
+       Did you mean?  complete!
+
+ Failure/Error: expect(page).not_to display_complete_todo 'Create Rails TDD proof of concept'
+       expected not to find visible css ".todos li.completed" with text "Create Rails TDD proof of concept", found 1 match: "Create Rails TDD proof of concept"
+
+```
