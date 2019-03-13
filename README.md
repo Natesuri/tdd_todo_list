@@ -250,23 +250,24 @@ Failure/Error: expect(todo).to be_completed
 
 Failure/Error: expect(todo).to be_completed
        expected `#<Todo id: nil, title: nil, created_at: nil, updated_at: nil, email: nil, completed_at: "2019-03-12 14:36:38">.completed?` to return true, got nil
+```
 
+Refactor Completion / Todo interaction
 
+```
+NoMethodError:
+       undefined method `complete' for #<Todo:0x00007fbe330423f8>
+       Did you mean?  completed?
+```
+Unit test for checking complete method
 
+```
+ NoMethodError:
+   undefined method `complete!' for #<Todo:0x00007fbe4082d088>
+   Did you mean?  complete
+                    completed?
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Failure/Error: expect(todo).to be_completed
+       expected `#<Todo id: 1, title: nil, created_at: "2019-03-13 17:09:04", updated_at: "2019-03-13 17:09:04", email: nil, completed_at: nil>.completed?` to return true, got false
 
 ```
